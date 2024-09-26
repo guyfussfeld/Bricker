@@ -1,0 +1,48 @@
+arie_levental,guyfussfeld
+319142055,207766973
+
+Answers:
+1.  We chose to pass the BrickerGameManager object down to the relevant entities instead of passing the object
+    returned by gameObjects(). This decision (same with everything in life) comes with its own set of
+    advantages and drawbacks:
+    Advantages:
+        -   The BrickerGameManager object is solely responsible for adding/removing objects from the game and
+            coordinating the respective events and processes dictated by their interactions.
+            This allows for a more organized and centralized codebase, as all game-related logic is
+            concentrated in one place.
+        -   Many classes require access to the gameObjects() object.
+            Additionally, some classes need extra functionality, which is readily accessible in the
+            BrickerGameManager object where the API is implemented with necessary safety mechanisms,
+            reducing potential sources of problems.
+        -   Reviewing the BrickerGameManager code can quickly provide insights into the game's mechanics,
+            as all critical game-related information and events are centralized there.
+    Disadvantages:
+        -   Future changes to the BrickerGameManager API might necessitate changes in more classes
+            (though good design adhering to the open/closed principle can usually prevent this).
+        -   The functionality of classes is limited by the BrickerGameManager's API. If the API does not
+            provide a certain functionality, the class cannot access it.
+2.  We utilized the provided Counter object to manage the count across multiple objects and methods.
+    A central method evaluates and adjusts the counter's color using a switch statement. After initializing
+    the visual counter and hearts UI, new hearts can be added as long as the lives cap isn't exceeded.
+    The location for the new heart is calculated based on the position of the last heart in the UI.
+    We decided not to create additional classes for these objects, as they are not used in any other class and
+    the existing UI layer is already sufficient.
+3.  -   Puck collision strategy: Using our design stated in point 1, we took advantage of the BrickGameManager
+        instance, and the colliding object instance to determine the right spawn location for the pucks.
+        In this case, we decided to add a Puck class, as the pucks are different from the regular ball in
+        terms of behavior and relation with different objects.
+    -   Extra Paddle collision strategy: Same as the puck, we felt like a new class is needed, and using the
+        provided Counter object we could manage the extra paddles count. Using a different tag from the
+        regular paddle, we could allow hearts to ignore the extra paddle.
+    -   Heart collision strategy: Similarly to the puck startegy, we can easly determine the right spawn
+        location for the hearts, and using the Counter object we can ensure the lives cap is not crossed.
+    -   Camera collision startegy: We leveraged the Ball's collision counter to set-up a starting count
+        and to calculate the exit term for the camera strategy. The mode will not start if the mode is already
+        in-place. Using the object tags we can ensure that only main ball collisions will trigger this mode.
+4.  We introduced a private counter for each brick along with functions to manage this counter from external
+    scopes. This approach allows us to track the number of collision strategies applied to each brick.
+    As a result, we can easily limit the number of behaviors per brick without handling every possible
+    scenario in the double collision tree. Consequently, if the maximum number of behaviors is increased
+    to 4 (or more), double-double collisions will be permitted without requiring code modifications.
+5.  Except for point 4, we found no need to modify the initial implemented API. By adhering to the open/closed
+    principle, we can easily introduce new objects and methods to the game without altering the existing code.
