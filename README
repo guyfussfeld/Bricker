@@ -46,3 +46,6 @@ Answers:
     to 4 (or more), double-double collisions will be permitted without requiring code modifications.
 5.  Except for point 4, we found no need to modify the initial implemented API. By adhering to the open/closed
     principle, we can easily introduce new objects and methods to the game without altering the existing code.
+
+to add the DanoGameLab dependencies:
+file->project_structure->modules->dependencies->+->jar->add src and DanoGameLab.jar
