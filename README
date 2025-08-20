@@ -1,4 +1,4 @@
 bricker game
 
 need to add the DanoGameLab dependencies in order to play:
-file->project_structure->modules->dependencies->+->jar->add src and DanoGameLab.jar
+file->project_structure->modules->dependencies->+->jar->DanoGameLab.jar
