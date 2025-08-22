@@ -3,9 +3,9 @@
 A fast-paced arcade game where the player controls a paddle to bounce a ball and break bricks.
 
 <p float="left">
-  <img src="images/screenshot1.jpeg" width="400" height="300"/>
-  <img src="images/screenshot2.jpeg" width="400" height="300"/>
-  <img src="images/screenshot3.jpeg" width="400" height="300"/>
+  <img src="images/screenshot1.jpeg" width="300" height="200"/>
+  <img src="images/screenshot2.jpeg" width="300" height="200"/>
+  <img src="images/screenshot3.jpeg" width="300" height="200"/>
 </p>
 
 ## 🎮 How to Play
