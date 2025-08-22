@@ -1,7 +1,6 @@
 # Bricker Game
 
 A fast-paced arcade game where the player controls a paddle to bounce a ball and break bricks.
-The game world includes multiple brick types with different collision behaviors, creating varied challenges for the player.
 
 <p float="left">
   <img src="images/screenshot1.jpeg" width="400" height="300"/>
